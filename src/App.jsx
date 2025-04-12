@@ -20,8 +20,9 @@ const services = [
 ];
 
 const bgImages = [
-  "src/images/image1.jpg",
-  "src/images/image2.jpg","src/images/image3.jpg",
+  "public/images/image1.jpg",
+  "public/images/image2.jpg",
+  "public/images/image3.jpg",
 ];
 
 export default function DoctorClinicHome() {
@@ -36,7 +37,7 @@ export default function DoctorClinicHome() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 to-blue-100 text-gray-800 scroll-smooth">
+    <div className="min-h-screen bg-gradient-to-r from-emerald-400 to-cyan-400scroll-smooth">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 px-10 py-6 flex justify-between items-center">
         <h1 className="text-3xl font-extrabold text-blue-900 tracking-wide"> Coopers Plains Doctors</h1>
@@ -51,27 +52,33 @@ export default function DoctorClinicHome() {
 
       {/* Hero Section with Rotating Background */}
       <section
-        id="hero"
-        className="h-screen relative text-center px-6 pt-20 overflow-hidden"
-        style={{
-          backgroundImage: `url(${bgImages[bgIndex]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          transition: "background-image 1s ease-in-out",
-        }}
-      >
-         <motion.div className="relative z-10 flex flex-col justify-center items-center h-full">
-    <div className='bg-black bg-opacity-30 p-8 rounded-xl'>
-    <h1 className="text-5xl font-bold text-blue-800 mb-4">
-      Welcome to Coopers Plains Medical Clinic
-    </h1>
-    <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-      Providing compassionate and modern medical care for you and your family.
-    </p>
+  id="hero"
+  className="h-[450px] relative text-center px-6 pt-20 overflow-hidden"
+  style={{
+    backgroundImage: `url(${bgImages[bgIndex]})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    transition: 'background-image 1s ease-in-out',
+  }}
+>
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    className="relative z-10 flex flex-col justify-center items-center h-full"
+  >
+    <div className="bg-black bg-opacity-40 p-8 rounded-xl">
+      <h1 className="text-5xl font-bold text-white mb-4">
+        Welcome to Coopers Plains Medical Clinic
+      </h1>
+      <p className="text-lg text-white max-w-2xl mx-auto">
+        Providing compassionate and modern medical care for you and your family.
+      </p>
     </div>
   </motion.div>
-        <div className="absolute inset-0 bg-white bg-opacity-20 z-0" />
-      </section>
+  <div className="absolute inset-0 bg-white bg-opacity-20 z-0" />
+</section>
+
 
       {/* About Section */}
       <motion.section
